@@ -74,11 +74,15 @@ const Board: React.FC = () => {
                             }
                         }, 500);
                     } else {
-                        setMessage("Not in word list");
-                        setShowMessage(true);
+                        // Reset states before triggering again
+                        setShowMessage(false);
                         setShakeRow(null);
+                        
+                        // Use setTimeout to ensure state reset before triggering
                         setTimeout(() => {
-                            triggerShake(currentGuessIndex);
+                            setMessage("Not in word list");
+                            setShowMessage(true);
+                            setShakeRow(currentGuessIndex);
                         }, 10);
                     }
                 });
