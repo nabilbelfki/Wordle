@@ -24,7 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Franklin+Gothic:wght@400;700&display=swap" />
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} dark`}>
         {children}
       </body>
     </html>
