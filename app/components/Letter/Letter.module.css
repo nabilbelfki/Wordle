@@ -1,0 +1,71 @@
+.letter {
+    height: 62px;
+    width: 62px;
+    font-size: 2rem;
+    border: none;
+    line-height: 1;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    color: var(--tile-text-color);
+    text-transform: uppercase;    
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.new {
+    border: solid 2px var(--tile-border);
+}
+
+@keyframes scaleUp {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.typed {
+    background-color: var(--color-tone-7);
+    border: 2px solid var(--color-tone-3);
+    color: var(--color-tone-1);
+    animation: scaleUp 0.2s ease;
+}
+
+.absent {
+    color: var( --key-evaluated-text-color);
+}
+
+.correct,
+.present {
+    color: var(--key-evaluated-not-absent-text-color);
+}
+
+.correct {
+    background-color: var(--color-correct);
+}
+
+.present {
+    background-color: var(--color-present);
+}
+
+.absent {
+    background-color: var(--color-absent);
+}
+
+.flip {
+    animation: flip 0.5s ease forwards;
+}
+
+@keyframes flip {
+    0% {
+        transform: rotateX(0deg);
+    }
+    50% {
+        transform: rotateX(90deg);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
+}

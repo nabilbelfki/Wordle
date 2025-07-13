@@ -1,0 +1,64 @@
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+  --tile-border: rgb(211,214,218);
+  --color-correct: rgb(106,170,100);
+  --color-present: rgb(201,180,88);
+  --color-absent: rgb(120,124,126);
+  --tile-text-color:#FFFFFF;
+  --tile-background: #FFFFFF;
+  --color-tone-1:#000000;
+  --color-tone-3: rgb(135,138,140);
+  --color-tone-7:#FFFFFF;
+  --key-background: #d3d6da;
+  --key-evaluated-text-color: #FFFFFF;
+  --key-evaluated-not-absent-text-color: #FFFFFF;
+  --key-text-color: #000000;
+  --popup-lines: #D3D6DA;
+  --popup-border: #FFFFFF;
+  --popup-background: rgba(255, 255, 255, 0.25);
+}
+
+.dark {
+  --background: #121213;
+  --foreground: #f8f8f8;
+  --tile-border: #3a3a3c;
+  --color-correct: #538d4e;
+  --color-present: #b59f3b;
+  --color-absent: #3a3a3c;
+  --tile-text-color: #171717;
+  --tile-background: #3a3a3c;
+  --color-tone-1: #f8f8f8;
+  --color-tone-3: #565758;
+  --color-tone-7: #121213;
+  --key-evaluated-text-color: #f8f8f8;
+  --key-evaluated-not-absent-text-color: #f8f8f8;
+  --key-background: #818384;
+  --key-text-color: #f8f8f8;
+  --popup-lines: #3a3a3c;
+  --popup-border: #1a1a1b;
+  --popup-background: rgba(0, 0, 0, 0.25);
+}
+
+body.high-contrast {
+  --color-correct: #f5793a;
+  --color-present: #85C0F9;
+  --key-evaluated-not-absent-text-color: #000000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* styles/globals.css */
+  font-family: 'Franklin Gothic', sans-serif;
+  background-color: var(--background);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+

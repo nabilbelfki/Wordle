@@ -1,0 +1,43 @@
+.key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-weight: 900;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    height: 58px;
+    width: 43px;
+    cursor: pointer;
+}
+
+.special {
+    font-size: 12px;
+    width: 65.4px;
+}
+
+.new {
+    background-color: var(--key-background);
+    color: var(--key-text-color);
+}
+
+.absent {
+    color: var(--key-evaluated-text-color);
+}
+
+.correct,
+.present {
+    background-color: var(--key-evaluated-not-absent-text-color);
+}
+
+.correct {
+    background-color: var(--color-correct);
+}
+
+.present {
+    background-color: var(--color-present);
+}
+
+.absent {
+    background-color: var(--color-absent);
+}
