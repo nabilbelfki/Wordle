@@ -59,13 +59,11 @@ const Board: React.FC = () => {
                         
                         // Reset states before triggering again
                         setShowMessage(false);
-                        setShakeRow(null);
                         
                         // Use setTimeout to ensure state reset before triggering
                         setTimeout(() => {
                             setMessage("Impressive!");
                             setShowMessage(true);
-                            setShakeRow(currentGuessIndex);
                         }, 10);
 
                         setTimeout(() => {
