@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import Guess from "../Guess/Guess";
 import Keyboard from "../Keyboard/Keyboard";
 import Message from "../Message/Message";
@@ -27,12 +27,6 @@ const Board: React.FC = () => {
     // In your parent component (e.g., Board.tsx)
     const [shakeRow, setShakeRow] = useState<number | null>(null);
 
-    // Function to trigger shake
-    const triggerShake = (rowIndex: number) => {
-        setShakeRow(rowIndex);
-        setTimeout(() => setShakeRow(null), 500); // Reset after animation
-    };
-
     useEffect(()=>{
         fetch('valid-words.csv')
         .then(response => response.text())
@@ -46,7 +40,7 @@ const Board: React.FC = () => {
     
     console.log(currentGuessIndex)
 
-    const typing = (key: string) => {
+    const typing = useCallback((key: string) => {
         if (currentGuessIndex < TOTAL_GUESSES) {
             const currentGuess = guesses[currentGuessIndex];
             const currentLetterPosition = currentGuess.indexOf(" ");
@@ -62,6 +56,18 @@ const Board: React.FC = () => {
                     const words = data.split("\n");
                     if (currentGuess === solution) {
                         setFlipRow(currentGuessIndex);
+                        
+                        // Reset states before triggering again
+                        setShowMessage(false);
+                        setShakeRow(null);
+                        
+                        // Use setTimeout to ensure state reset before triggering
+                        setTimeout(() => {
+                            setMessage("Impressive!");
+                            setShowMessage(true);
+                            setShakeRow(currentGuessIndex);
+                        }, 10);
+
                         setTimeout(() => {
                             setCurrentGuessIndex(TOTAL_GUESSES);
                         }, 500);
@@ -112,7 +118,8 @@ const Board: React.FC = () => {
                 });
             }
         }
-    };
+    }, [currentGuessIndex, guesses, solution]);
+
 
     useEffect(() => {
         const handleTyping = (event: KeyboardEvent) => {

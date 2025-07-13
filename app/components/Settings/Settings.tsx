@@ -5,9 +5,7 @@ import styles from "./Settings.module.css";
 import { settings } from "../../../constants/constants";
 import { useTheme } from "../../context/ThemeContext";
 
-interface SettingsProps {}
-
-const Settings: React.FC<SettingsProps> = ({}) => {
+const Settings: React.FC = () => {
     const [isPopupShowing, setIsPopupShowing] = useState(false);
     const { 
         theme, 
