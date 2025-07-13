@@ -1,36 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Message.module.css";
 
 interface MessageProps {
-    show?: boolean;       // Control visibility (default: false)
-    text: string;        // Message content
-    duration?: number;   // Auto-hide after milliseconds (undefined = infinite)
-    onHide?: () => void; // Callback when auto-hide completes
+    text: string;
+    show?: boolean;
+    permanent?: boolean;  // Add this prop
 }
 
-const Message: React.FC<MessageProps> = ({ 
-    show = false, 
-    text, 
-    duration, 
-    onHide 
-}) => {
+const Message: React.FC<MessageProps> = ({ text, show = false, permanent = false }) => {
+    const [isVisible, setIsVisible] = useState(show);
+
     useEffect(() => {
-        if (!show || !duration) return;
+        if (permanent) {
+            setIsVisible(show);
+        } else {
+            setIsVisible(show);
+            if (show) {
+                const timer = setTimeout(() => setIsVisible(false), 2000);
+                return () => clearTimeout(timer);
+            }
+        }
+    }, [show, permanent]);
 
-        const timer = setTimeout(() => {
-            onHide?.();
-        }, duration);
+    if (!isVisible) return null;
 
-        return () => clearTimeout(timer);
-    }, [show, duration, onHide]);
-
-    if (!show) return null;
-
-    return (
-        <div className={styles.message}>
-            {text}
-        </div>
-    );
+    return <div className={styles.message}>{text}</div>;
 };
 
 export default Message;

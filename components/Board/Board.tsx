@@ -15,22 +15,12 @@ const Board: React.FC = () => {
     const [guesses, setGuesses] = useState<string[]>(
         Array(TOTAL_GUESSES).fill(Array(WORD_LENGTH).fill(" ").join(""))
     );
+    const [gameOver, setGameOver] = useState(false);
     const [currentGuessIndex, setCurrentGuessIndex] = useState(0);
     const [flipRow, setFlipRow] = useState<number | null>(null);
     const [solution, setSolution] = useState("");
     const [message, setMessage] = useState("");
     const [showMessage, setShowMessage] = useState(false);
-
-    // Add this effect to auto-hide message after 2 seconds
-    useEffect(() => {
-        if (showMessage) {
-            const timer = setTimeout(() => {
-                setShowMessage(false);
-                setMessage("");
-            }, 2000);
-            return () => clearTimeout(timer);
-        }
-    }, [showMessage]);
 
     // In your parent component (e.g., Board.tsx)
     const [shakeRow, setShakeRow] = useState<number | null>(null);
@@ -72,16 +62,15 @@ const Board: React.FC = () => {
                         setFlipRow(currentGuessIndex);
                         setTimeout(() => {
                             setCurrentGuessIndex(TOTAL_GUESSES);
-                            setMessage("Correct! You win!");
-                            setShowMessage(true);
                         }, 500);
                     } else if (words.includes(currentGuess.toLowerCase())) {
                         setFlipRow(currentGuessIndex);
                         setTimeout(() => {
                             setCurrentGuessIndex(oldIndex => oldIndex + 1);
                             if (currentGuessIndex === TOTAL_GUESSES - 1) {
-                                setMessage(`Game Over! The word was ${solution}`);
+                                setMessage(solution);
                                 setShowMessage(true);
+                                setGameOver(true);
                             }
                         }, 500);
                     } else {
@@ -133,7 +122,7 @@ const Board: React.FC = () => {
     return (
         <div className={styles.board}>
             <div className={styles.messages}>
-                <Message text={message} show={showMessage} />
+                <Message text={message} show={showMessage} permanent={gameOver} />
             </div>
             {guesses.map((guess, index) =>
                 <Guess 
