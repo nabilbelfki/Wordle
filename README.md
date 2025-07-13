@@ -14,41 +14,45 @@ This is a recreation of the popular word game Wordle using Next.js.
 Make sure you have the following installed:
 
 - Node.js (v14 or higher)
-- npm or [yarn](https://yarnpkged
+- npm
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/your-username/wordle-replica.git
-    cd wordle-replica
+    git clone https://github.com/nabilbelfki/Wordle.git
     ```
 
-2. **Install dependencies:**
+2. **Change Directory:**
+
+    ```bash
+    cd wordle
+    ```
+
+3. **Install Dependencies:**
 
     Using npm:
     ```bash
     npm install
     ```
 
-    Or using yarn:
-    ```bash
-    yarn install
-    ```
-
-3. **Run the development server:**
+4. **Run on Development Server:**
 
     Using npm:
     ```bash
     npm run dev
     ```
 
-    Or using yarn:
-    ```bash
-    yarn dev
-    ```
-
-    Open [http://localhost:3000](http://localhost:300ee the result.
+    Open [http://localhost:3000](http://localhost:300) the result.
 
 ## Building for Production
+
+To create an optimized production build:
+
+Using npm:
+```bash
+npm run build
+```
+
+## Starting Production Application
 
 To create an optimized production build:
 
