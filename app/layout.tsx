@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Settings from "./components/Settings/Settings";
+import { ThemeProvider } from "./context/ThemeContext";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -23,12 +25,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Franklin+Gothic:wght@400;700&display=swap" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} dark`}>
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <ThemeProvider>
+          <Settings />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

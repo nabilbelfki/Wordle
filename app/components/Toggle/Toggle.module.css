@@ -1,0 +1,39 @@
+.toggle {
+    height: 20px;
+    width: 32px;
+    background: #565758;
+    border: none;
+    border-radius: 999px;
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+
+.switch {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    height: 16px;
+    width: 16px;
+    border-radius: 8px;
+    background: #FFFFFF;
+    transform: translateX(0);
+    transition: transform .3s;
+}
+
+.disabled {
+    background: #343536;
+}
+
+.disabled .switch {
+    background: #888889;
+}
+
+.on {
+    background: #538e4e;
+}
+
+.on .switch {
+    background: #FFFFFF;
+    transform: translateX(12px); /* Adjust this value to match the width of the toggle */
+}

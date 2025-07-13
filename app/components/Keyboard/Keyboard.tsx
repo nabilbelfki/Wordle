@@ -2,7 +2,7 @@
 import React from "react";
 import Key from "../Key/Key";
 import styles from "./Keyboard.module.css";
-import { keyboardRows } from "../../constants/constants";
+import { keyboardRows } from "../../../constants/constants";
 
 interface KeyboardProps {
     guesses: string[];

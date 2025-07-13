@@ -4,7 +4,7 @@ import Guess from "../Guess/Guess";
 import Keyboard from "../Keyboard/Keyboard";
 import Message from "../Message/Message";
 import styles from "./Board.module.css";
-import { WORD_LENGTH, TOTAL_GUESSES } from "../../constants/constants";
+import { WORD_LENGTH, TOTAL_GUESSES } from "../../../constants/constants";
 
 interface Guess {
     guess: string;

@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState} from "react";
-import Letter from "./../Letter/Letter";
+import Letter from "../Letter/Letter";
 import styles from "./Guess.module.css";
 
 interface GuessProps {

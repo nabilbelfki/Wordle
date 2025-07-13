@@ -1,9 +1,11 @@
 .board {
+    margin-top: 150px;
     display: flex;
     position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    user-select: none;
     gap: 5px;
 }
 
