@@ -58,4 +58,5 @@ To create an optimized production build:
 
 Using npm:
 ```bash
-npm run build
+npm start
+```
