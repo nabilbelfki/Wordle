@@ -28,7 +28,7 @@ export const settings: Setting[] = [
         subtitle: "Contrast and colorblindness improvements"
     },
     {
-        id: "input-only",
+        id: "input-mode",
         title: "Onscreen Keyboard Input Only",
         subtitle: "Ignore key input except from the onscreen keyboard. Most helpful for users using speech recognition or other assistive devices."
     }

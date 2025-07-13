@@ -9,7 +9,14 @@ interface SettingsProps {}
 
 const Settings: React.FC<SettingsProps> = ({}) => {
     const [isPopupShowing, setIsPopupShowing] = useState(false);
-    const { theme, toggleTheme } = useTheme();
+    const { 
+        theme, 
+        inputMode, 
+        contrastMode,
+        toggleTheme, 
+        toggleInputMode,
+        toggleContrastMode
+    } = useTheme();
 
     return (
         <div className={styles.settings}>
@@ -44,8 +51,22 @@ const Settings: React.FC<SettingsProps> = ({}) => {
                                         isOn={theme === 'dark'} 
                                         handleToggle={toggleTheme} 
                                     />
+                                ) : setting.id === 'input-mode' ? (
+                                    <Toggle 
+                                        isOn={inputMode === 'onscreen-only'} 
+                                        handleToggle={toggleInputMode} 
+                                    />
+                                ) : setting.id === 'high-contrast-mode' ? (
+                                    <Toggle 
+                                        isOn={contrastMode === 'high-contrast'} 
+                                        handleToggle={toggleContrastMode} 
+                                    />
                                 ) : (
-                                    <Toggle />
+                                    <Toggle 
+                                        isOn={false} 
+                                        handleToggle={() => {}} 
+                                        disabled
+                                    />
                                 )}
                             </div>
                         ))}

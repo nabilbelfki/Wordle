@@ -4,6 +4,7 @@ import Guess from "../Guess/Guess";
 import Keyboard from "../Keyboard/Keyboard";
 import Message from "../Message/Message";
 import styles from "./Board.module.css";
+import { useTheme } from "../../context/ThemeContext";
 import { WORD_LENGTH, TOTAL_GUESSES } from "../../../constants/constants";
 
 interface Guess {
@@ -12,6 +13,7 @@ interface Guess {
 }
 
 const Board: React.FC = () => {
+    const { inputMode } = useTheme();
     const [guesses, setGuesses] = useState<string[]>(
         Array(TOTAL_GUESSES).fill(Array(WORD_LENGTH).fill(" ").join(""))
     );
@@ -114,13 +116,16 @@ const Board: React.FC = () => {
 
     useEffect(() => {
         const handleTyping = (event: KeyboardEvent) => {
-            if (!event.ctrlKey && !event.altKey && !event.metaKey) {
-                typing(event.key);
-            }
+            if (inputMode === 'keyboard') {
+                if (!event.ctrlKey && !event.altKey && !event.metaKey) {
+                    typing(event.key);
+                }
+            }   
         };
+        
         window.addEventListener('keydown', handleTyping);
         return () => window.removeEventListener('keydown', handleTyping);
-    }, [currentGuessIndex, guesses]);
+    }, [currentGuessIndex, guesses, inputMode, typing]);
 
 
     return (

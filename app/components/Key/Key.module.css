@@ -21,10 +21,13 @@
     color: var(--key-text-color);
 }
 
-.correct,
-.present,
 .absent {
     color: var(--key-evaluated-text-color);
+}
+
+.correct,
+.present {
+    background-color: var(--key-evaluated-not-absent-text-color);
 }
 
 .correct {

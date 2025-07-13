@@ -12,6 +12,7 @@
   --color-tone-7:#FFFFFF;
   --key-background: #d3d6da;
   --key-evaluated-text-color: #FFFFFF;
+  --key-evaluated-not-absent-text-color: #FFFFFF;
   --key-text-color: #000000;
   --popup-lines: #D3D6DA;
   --popup-border: #FFFFFF;
@@ -31,11 +32,18 @@
   --color-tone-3: #565758;
   --color-tone-7: #121213;
   --key-evaluated-text-color: #f8f8f8;
+  --key-evaluated-not-absent-text-color: #f8f8f8;
   --key-background: #818384;
   --key-text-color: #f8f8f8;
   --popup-lines: #3a3a3c;
   --popup-border: #1a1a1b;
   --popup-background: rgba(0, 0, 0, 0.25);
+}
+
+body.high-contrast {
+  --color-correct: #f5793a;
+  --color-present: #85C0F9;
+  --key-evaluated-not-absent-text-color: #000000;
 }
 
 * {
