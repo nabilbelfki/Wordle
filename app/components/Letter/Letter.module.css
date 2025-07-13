@@ -58,16 +58,6 @@
     animation: flip 0.5s ease forwards;
 }
 
-/* .high-contrast .correct {
-    background-color: #f5793a;
-    color: #000000;
-}
-
-.high-contrast .present {
-    background-color: #85C0F9;
-    color: #000000;
-} */
-
 @keyframes flip {
     0% {
         transform: rotateX(0deg);

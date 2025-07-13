@@ -1,5 +1,5 @@
-"use client";
-import React, { useEffect, useState} from "react";
+"use client"
+import React, { useEffect, useState } from "react";
 import Letter from "../Letter/Letter";
 import styles from "./Guess.module.css";
 
@@ -8,7 +8,7 @@ interface GuessProps {
     solution: string;
     guessed: boolean;
     shouldShake?: boolean;
-    shouldFlip?: boolean;  // Add this prop
+    shouldFlip?: boolean;
 }
 
 const Guess: React.FC<GuessProps> = ({ guess, solution, guessed, shouldShake, shouldFlip }) => {
@@ -29,22 +29,17 @@ const Guess: React.FC<GuessProps> = ({ guess, solution, guessed, shouldShake, sh
                     key={index} 
                     letter={letter} 
                     state={
-                        letter == ' ' 
-                        ? 'new' : ( 
-                            !guessed 
-                            ? "typed" 
-                            : (
-                                solution[index] === letter 
-                                ? "correct" 
-                                : (
-                                    solution.includes(letter) 
-                                    ? 'present' 
-                                    : 'absent' 
-                                )
-                            )
-                        )
+                        letter === ' ' 
+                        ? 'new' 
+                        : !guessed 
+                          ? "typed" 
+                          : solution[index] === letter 
+                            ? "correct" 
+                            : solution.includes(letter) 
+                              ? 'present' 
+                              : 'absent'
                     }
-                    shouldFlip={shouldFlip && guessed}  // Only flip when guessed
+                    flipDelay={shouldFlip && guessed ? index * 100 : undefined}
                 />
             )}
         </div>
